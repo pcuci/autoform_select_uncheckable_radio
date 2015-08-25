@@ -61,14 +61,14 @@ addAutoFormHooks = (formId) ->
       update: (doc) ->
         # Need to unset fields that have previously been set
         ss = AutoForm.getFormSchema(formId)
-        UncheckableRadioFieldKeys = []
+        uncheckableRadioFieldKeys = []
         # Find all fields of type select-uncheckable-radio
         _.each(ss._schemaKeys, (key) ->
           if ss._schema[key].autoform?.type is "select-uncheckable-radio"
-            UncheckableRadioFieldKeys.push(key)
+            uncheckableRadioFieldKeys.push(key)
         )
         doc.$unset = {}
-        _.each(UncheckableRadioFieldKeys, (key) ->
+        _.each(uncheckableRadioFieldKeys, (key) ->
           # Only unset undefined fields, i.e.: select-uncheckable-radio types which have just been unselected
           if not doc.$set[key]
             doc.$unset[key] = ""
