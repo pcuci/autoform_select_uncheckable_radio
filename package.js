@@ -11,8 +11,8 @@ Package.onUse(function(api) {
     api.versionsFrom('1.1.0.3');
 
     api.use('templating');
-    api.use('aldeed:autoform@5.4.0');
-    api.use('aldeed:template-extension');
+    api.use('aldeed:autoform@5.4.1');
+    api.use('aldeed:template-extension@3.4.3');
 
     api.use([
       'underscore',
